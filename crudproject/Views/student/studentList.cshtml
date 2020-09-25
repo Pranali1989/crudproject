@@ -1,0 +1,32 @@
+﻿@model List<crudproject.Context.tb_Student>
+@{
+    ViewBag.Title = "studentList";
+}
+
+<table>
+     <tr>
+         <th> Name </th>
+         <th> Fname </th>
+         <th> Email </th>
+         <th> Mobile </th>
+         <th> Description </th>
+         <th> Action </th>
+     </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> @item.Name </td>
+            <td> @item.Fname </td>
+            <td> @item.Email </td>
+            <td> @item.Mobile </td>
+            <td> @item.Description </td>
+            <td>
+                <a href="@Url.Action("student", new { item.Id, item.Name, item.Fname, item.Email, item.Mobile, item.Description }  )" class="btn btn-success"> Edit </a>
+                <a href="@Url.Action("Delete",new { item.Id })" class="btn btn-danger"> Delete </a>
+            </td>
+        </tr>
+    }
+
+</table>
+
